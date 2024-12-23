@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekday Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        #dayForm {
+            margin-top: 20px;
+        }
+        h1 {
+            
+            margin-right: 8px;
+        }
+        #dayInput {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weekday Checker</h1>
+    <form id="dayForm">
+        <input type="text" id="dayInput" placeholder="Enter a day name" required>
+        <button type="submit">Check</button>
+    </form>
+    <div class="message"></div>
+
+    <script>
+       
+
+        document.getElementById("dayForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const day = document.getElementById("dayInput").value.trim().toLowerCase();
+            const weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+            const message = document.querySelector(".message");
+            if (weekdays.includes(day)) {
+                message.textContent = `The day is: ${day.charAt(0).toUpperCase() + day.slice(1 )}`;
+            } else {
+                message.textContent = "Invalid day name. Please enter a valid day name.";
+            }
+
+        });
+      
+    </script>
+</body>
+</html>
